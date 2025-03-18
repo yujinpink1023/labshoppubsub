@@ -50,6 +50,17 @@ public class Inventory {
          });
         */
 
+                
+               
+        repository().findById(Long.valueOf(orderPlaced.getProductId())).ifPresent(inventory->{
+            
+            inventory.setStock(inventory.getStock() - orderPlaced.getQty()); // do something
+            repository().save(inventory);
+
+
+         });
+      
+
     }
     //>>> Clean Arch / Port Method
 
